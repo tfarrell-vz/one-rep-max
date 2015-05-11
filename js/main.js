@@ -3,12 +3,12 @@ var one_rep_max = function(weight, reps) {
 };
 
 var get_entered_values = function() {
-	var values = [];
+	var values = {};
 	var weight = $('#weight').val();
 	var reps = $('#reps').val();
-	values.push(weight);
-	values.push(reps);
-
+	values['weight'] = weight;
+	values['reps'] = reps;
+    
 	console.log(values);
 	
 	return values;
@@ -16,7 +16,7 @@ var get_entered_values = function() {
 
 $('#calc').on('click', function() {
 	var data = get_entered_values();
-	var result = one_rep_max(data[0], data[1]);
+	var result = one_rep_max(data['weight'], data['reps']);
 	$('#result').val(result);
 });
 
